@@ -8,42 +8,42 @@ const PRODUCTS = [
     id: "midnight-racer-tee",
     name: "Midnight Racer Tee",
     price: 1199,
-    image: "midnight racer.jpg",
+    image: "images/midnight racer.jpg",
     description: "A sharp, minimal embroidered tee crafted for everyday streetwear comfort."
   },
   {
     id: "shinobi-mark-tee",
     name: "Shinobi Mark Tee",
     price: 1099,
-    image: "shinobi mark.jpg",
+    image: "images/shinobi mark.jpg",
     description: "Inspired by underground culture, this tee balances detail and simplicity."
   },
   {
     id: "akira-thread-tee",
     name: "Akira Thread Tee",
     price: 1299,
-    image: "akira thread.jpg",
+    image: "images/akira thread.jpg",
     description: "Premium threadwork with clean finishing for a refined urban silhouette."
   },
   {
     id: "apex-line-shirt",
     name: "Apex Line Shirt",
     price: 1399,
-    image: "apex line.jpg",
+    image: "images/apex line.jpg",
     description: "Structured fit and elevated style designed to stand out effortlessly."
   },
   {
     id: "couch-club-shirt",
     name: "Couch Club Shirt",
     price: 1299,
-    image: "couch club.jpg",
+    image: "images/couch club.jpg",
     description: "Relaxed street fit with detailed embroidery made for all-day wear."
   },
   {
     id: "90s-mood-tee",
     name: "90s Mood Tee",
     price: 999,
-    image: "90s mood.jpg",
+    image: "images/90s mood.jpg",
     description: "Vintage-inspired mood with modern comfort and signature NIVVI identity."
   }
 ];
