@@ -2,7 +2,9 @@
    NIVVI.IN - Main Script
    ========================= */
 
-// Product dataset
+// =========================
+// PRODUCT DATA
+// =========================
 const PRODUCTS = [
   {
     id: "midnight-racer-tee",
@@ -51,50 +53,44 @@ const PRODUCTS = [
 const WHATSAPP_NUMBER = "917016248695";
 const SIZES = ["S", "M", "L", "XL"];
 
-/**
- * Utility: format INR
- */
+// =========================
+// UTILITIES
+// =========================
 function formatPrice(price) {
   return `₹${price}`;
 }
 
-/**
- * Utility: Build WhatsApp URL with encoded message
- */
 function buildWhatsAppURL(productName, size) {
   const text = `Hi, I want to order the ${productName} in size ${size}. Please share details.`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
-/**
- * Create size options
- */
 function sizeOptionsMarkup() {
   return SIZES.map((size) => `<option value="${size}">${size}</option>`).join("");
 }
 
-/**
- * Product card component
- */
+// =========================
+// PRODUCT CARD
+// =========================
 function createProductCard(product) {
   return `
     <article class="product-card">
       <div class="product-image-wrap">
         <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" />
       </div>
+
       <div class="product-body">
         <h3 class="product-name">${product.name}</h3>
         <p class="product-price">${formatPrice(product.price)}</p>
 
         <div class="select-row">
-          <label for="size-${product.id}" class="sr-only">Select size for ${product.name}</label>
-          <select id="size-${product.id}" class="size-select" data-size-for="${product.id}">
+          <select class="size-select" data-size-for="${product.id}">
             ${sizeOptionsMarkup()}
           </select>
         </div>
 
         <div class="card-actions">
-          <a href="product.html?id=${product.id}" class="btn-outline" aria-label="View ${product.name}">
+          <a href="product.html?id=${product.id}" class="btn-outline">
             View
           </a>
           <button class="btn-whatsapp" data-order-btn data-product-id="${product.id}">
@@ -106,9 +102,9 @@ function createProductCard(product) {
   `;
 }
 
-/**
- * Render product grid in target container
- */
+// =========================
+// RENDER GRID
+// =========================
 function renderProductGrid(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -116,9 +112,9 @@ function renderProductGrid(containerId) {
   container.innerHTML = PRODUCTS.map(createProductCard).join("");
 }
 
-/**
- * Bind dynamic WhatsApp buttons (cards + detail page)
- */
+// =========================
+// WHATSAPP BUTTON LOGIC
+// =========================
 function bindWhatsAppButtons() {
   document.addEventListener("click", (event) => {
     const btn = event.target.closest("[data-order-btn]");
@@ -132,13 +128,13 @@ function bindWhatsAppButtons() {
     const selectedSize = sizeSelect ? sizeSelect.value : "M";
 
     const waURL = buildWhatsAppURL(product.name, selectedSize);
-    window.open(waURL, "_blank", "noopener,noreferrer");
+    window.open(waURL, "_blank");
   });
 }
 
-/**
- * Product page dynamic rendering
- */
+// =========================
+// PRODUCT PAGE
+// =========================
 function renderProductDetailPage() {
   const detailRoot = document.getElementById("product-detail");
   if (!detailRoot) return;
@@ -151,14 +147,14 @@ function renderProductDetailPage() {
     <div class="product-detail-image-wrap">
       <img src="${product.image}" alt="${product.name}" class="product-detail-image" />
     </div>
-    <div class="product-detail-content">
+
+    <div>
       <h1>${product.name}</h1>
       <p class="product-detail-price">${formatPrice(product.price)}</p>
       <p>${product.description}</p>
 
       <div class="select-row">
-        <label for="size-${product.id}">Size</label>
-        <select id="size-${product.id}" class="size-select" data-size-for="${product.id}">
+        <select class="size-select" data-size-for="${product.id}">
           ${sizeOptionsMarkup()}
         </select>
       </div>
@@ -170,9 +166,34 @@ function renderProductDetailPage() {
   `;
 }
 
-/**
- * Mobile menu
- */
+// =========================
+// HERO SLIDER (NEW)
+// =========================
+function initHeroSlider() {
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+
+  if (!slides.length) return;
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    if (dots[index]) dots[index].classList.add("active");
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 4000);
+}
+
+// =========================
+// MOBILE NAV
+// =========================
 function setupMobileNav() {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
@@ -184,47 +205,23 @@ function setupMobileNav() {
   });
 }
 
-/**
- * Footer year
- */
+// =========================
+// FOOTER YEAR
+// =========================
 function setYear() {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
-/**
- * Accessibility helper class (injected once)
- */
-function injectSrOnlyStyle() {
-  if (document.getElementById("sr-only-style")) return;
-  const style = document.createElement("style");
-  style.id = "sr-only-style";
-  style.textContent = `
-    .sr-only {
-      position: absolute !important;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-/* =========================
-   Init
-   ========================= */
+// =========================
+// INIT
+// =========================
 document.addEventListener("DOMContentLoaded", () => {
-  injectSrOnlyStyle();
   setupMobileNav();
   setYear();
 
-  // Render per page
   const page = document.body.dataset.page;
+
   if (page === "home") {
     renderProductGrid("product-grid-home");
   } else if (page === "collection") {
@@ -233,6 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProductDetailPage();
   }
 
-  // WhatsApp buttons for all pages
   bindWhatsAppButtons();
+
+  // INIT SLIDER
+  initHeroSlider();
 });
