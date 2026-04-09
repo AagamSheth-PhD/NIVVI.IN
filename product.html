@@ -5,16 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NIVVI.IN Product Details" />
   <title>NIVVI.IN | Product</title>
+
+  <!-- Premium Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body data-page="product">
+
+  <!-- NAVBAR -->
   <header class="site-header">
-    <nav class="navbar container" aria-label="Main Navigation">
-      <a href="index.html" class="brand" aria-label="NIVVI.IN Home">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
         <img src="nivvi logo.jpg" alt="NIVVI.IN Logo" class="brand-logo" />
       </a>
 
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav-toggle">
         <span></span><span></span><span></span>
       </button>
 
@@ -25,32 +32,76 @@
     </nav>
   </header>
 
-  <main class="section">
-    <div class="container">
-      <article id="product-detail" class="product-detail" aria-live="polite"></article>
-    </div>
+  <main>
+
+    <!-- PRODUCT HERO (NEW - VISUAL IMPACT) -->
+    <section class="product-hero">
+      <div class="container">
+        <p class="breadcrumb">
+          <a href="collection.html">Collection</a> / Product
+        </p>
+      </div>
+    </section>
+
+    <!-- PRODUCT DETAIL -->
+    <section class="section">
+      <div class="container">
+
+        <article id="product-detail" class="product-detail"></article>
+
+        <!-- EXTRA TRUST / DETAILS -->
+        <div class="product-extra">
+          <div>
+            <h3>Details</h3>
+            <ul>
+              <li>Premium 240 GSM cotton</li>
+              <li>Precision embroidery (not prints)</li>
+              <li>Oversized relaxed fit</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Delivery</h3>
+            <ul>
+              <li>Pan India shipping</li>
+              <li>Dispatch within 2–4 days</li>
+              <li>Easy WhatsApp support</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-banner">
+      <img src="poster 1.jpg" alt="Shop NIVVI">
+      <div class="cta-overlay">
+        <h2>Explore More Styles</h2>
+        <a href="collection.html" class="btn btn-primary">View Collection</a>
+      </div>
+    </section>
+
   </main>
 
+  <!-- WHATSAPP -->
   <a
     href="https://wa.me/917016248695"
     class="floating-whatsapp"
     target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat on WhatsApp"
-    title="Chat on WhatsApp"
   >
     WA
   </a>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-content">
-      <p>© <span id="year"></span> NIVVI.IN. All rights reserved.</p>
-      <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        Instagram
-      </a>
+      <p>© <span id="year"></span> NIVVI.IN</p>
+      <a href="https://instagram.com/" target="_blank">Instagram</a>
     </div>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
