@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NIVVI.IN - Premium embroidered streetwear built on details." />
   <title>NIVVI.IN | Home</title>
+
+  <!-- Fonts (Premium feel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body data-page="home">
-  <!-- Sticky Navbar -->
+
+  <!-- Navbar -->
   <header class="site-header">
-    <nav class="navbar container" aria-label="Main Navigation">
-      <a href="index.html" class="brand" aria-label="NIVVI.IN Home">
+    <nav class="navbar container">
+      <a href="index.html" class="brand">
         <img src="nivvi logo.jpg" alt="NIVVI.IN Logo" class="brand-logo" />
       </a>
 
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav-toggle">
         <span></span><span></span><span></span>
       </button>
 
@@ -27,30 +33,80 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero section">
+
+    <!-- HERO SLIDER -->
+    <section class="hero">
       <div class="hero-slider">
         <img src="poster 1.jpg" class="slide active" />
         <img src="poster 2.jpg" class="slide" />
         <img src="poster 3.jpg" class="slide" />
-          
+
+        <!-- Optional overlay (remove if posters already have text) -->
         <div class="hero-overlay">
           <h1>Wear Stories. Not Prints.</h1>
           <p>Premium embroidered streetwear built on details.</p>
           <a href="collection.html" class="btn btn-primary">Explore Collection</a>
         </div>
+
+        <!-- Slider dots -->
+        <div class="slider-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
       </div>
     </section>
 
-    <!-- Product Grid -->
+    <!-- COLLECTION SPLIT (LUXURY SECTION) -->
+    <section class="collection-split">
+      <div class="split-item">
+        <img src="poster 1.jpg" alt="Motorsport Collection">
+        <div class="split-overlay">
+          <h2>Motorsport</h2>
+        </div>
+      </div>
+
+      <div class="split-item">
+        <img src="poster 2.jpg" alt="Anime Collection">
+        <div class="split-overlay">
+          <h2>Anime</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Featured Collection</h2>
+          <div>
+            <h2>Latest Drops</h2>
+            <p class="section-sub">Minimal embroidery. Maximum identity.</p>
+          </div>
         </div>
-        <div id="product-grid-home" class="product-grid" aria-live="polite"></div>
+
+        <div id="product-grid-home" class="product-grid"></div>
       </div>
     </section>
+
+    <!-- BRAND STATEMENT -->
+    <section class="brand-block">
+      <div class="container">
+        <h2>
+          Designed for those who don’t follow trends.<br>
+          They define them.
+        </h2>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-banner">
+      <img src="poster 3.jpg" alt="Shop NIVVI">
+      <div class="cta-overlay">
+        <h2>Find Your Fit</h2>
+        <a href="collection.html" class="btn btn-primary">Shop Now</a>
+      </div>
+    </section>
+
   </main>
 
   <!-- Floating WhatsApp -->
@@ -58,22 +114,19 @@
     href="https://wa.me/917016248695"
     class="floating-whatsapp"
     target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat on WhatsApp"
-    title="Chat on WhatsApp"
   >
     WA
   </a>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-content">
-      <p>© <span id="year"></span> NIVVI.IN. All rights reserved.</p>
-      <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        Instagram
-      </a>
+      <p>© <span id="year"></span> NIVVI.IN</p>
+      <a href="https://instagram.com/" target="_blank">Instagram</a>
     </div>
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
